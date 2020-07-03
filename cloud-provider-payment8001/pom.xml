@@ -13,6 +13,11 @@
 
 
     <dependencies>
+        <!--包含了Sleuth+zipkin -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--引入本地仓库的重构公共类-->
         <dependency>
             <groupId>com.guangzhou.springcloud</groupId>

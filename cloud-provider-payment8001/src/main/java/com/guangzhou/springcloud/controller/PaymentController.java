@@ -96,4 +96,12 @@ public class PaymentController {
         }
         return "执行完毕";
     }
+
+    /**
+     * zipkin
+     */
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin(){
+        return "hello zipkin";
+    }
 }

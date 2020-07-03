@@ -7,6 +7,13 @@ server:
 spring:
   application:
     name: cloud-order-service
+  zipkin:
+     #监控的数据注册到该地址
+     base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      #采样率值介于0到1之间，设置成1表示全部采样
+      probability: 1
 
 #加入eureka客户端模块
 eureka:
