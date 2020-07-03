@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: config-client
+    name: cloud-config-client
   cloud:
     #Config客户端配置
     config:
@@ -12,8 +12,14 @@ spring:
       profile: dev  #读取后缀名称
       uri: http://localhost:3344  #配置中心地址
 #上述4个综合起来：从http://config-3344.com读取，master分支上的config-dev.yml
+  #spring.rabbitmq相关配置，5672是MQ访问的端口，15672管理界面UI端口
+  rabbitmq:
+    host: 192.168.184.130
+    port: 5672
+    username: guest
+    password: guest
 
-#暴露监控端点
+#RabbitMQ相关配置，暴露bus刷新配置的端点。一定要引入actuator监控依赖
 management:
   endpoints:
     web:

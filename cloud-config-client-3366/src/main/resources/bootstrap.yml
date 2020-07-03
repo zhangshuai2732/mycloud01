@@ -1,20 +1,17 @@
 server:
-  port: 3344
+  port: 3366
 
 spring:
   application:
-    #注册到Eureka服务中心的微服务名
-    name: cloud-config-center
+    name: cloud-config-client
   cloud:
+    #Config客户端配置
     config:
-      server:
-        git:
-          uri: https://github.com/zhangshuai2732/springcloud-config.git
-          search-paths:
-            #github上项目名
-            - springcloud-config
-      #读取分支
-      label: master
+      label: master #分支名称
+      name: config  #配置文件名称
+      profile: dev  #读取后缀名称
+      uri: http://localhost:3344  #配置中心地址
+#上述4个综合起来：从http://config-3344.com读取，master分支上的config-dev.yml
   #spring.rabbitmq相关配置，5672是MQ访问的端口，15672管理界面UI端口
   rabbitmq:
     host: 192.168.184.130
@@ -27,11 +24,9 @@ management:
   endpoints:
     web:
       exposure:
-        include: 'bus-refresh'
+        include: "*"
 
-#注册到eureka的服务地址
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
-
