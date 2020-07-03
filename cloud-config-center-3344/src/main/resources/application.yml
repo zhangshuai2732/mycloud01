@@ -9,8 +9,9 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:zhangshuai2732/springcloud-config.git
+          uri: https://github.com/zhangshuai2732/springcloud-config.git
           search-paths:
+            #github上项目名
             - springcloud-config
       #读取分支
       label: master
